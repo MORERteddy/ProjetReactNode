@@ -1,4 +1,3 @@
-const firebase = require("./firebase")
 const express = require("express")
 
 require("dotenv").config()
@@ -8,9 +7,7 @@ mongoose.connect(process.env.CONNECTION_URI, optionMangoos)
 
 const app=express()
 
-console.log(firebase
-    .collection("posts")
-    .orderBy("created_at", "desc"))
+console.log()
 
 app.get("/",(req,res)=>{})
 
