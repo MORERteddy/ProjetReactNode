@@ -31,6 +31,13 @@ app.get("/Post/:id",async(req,res)=>{
     .catch(err => res.status(500).send())
 })
 
+app.get("/",async(req,res)=>{
+	await Post.find().sort({"noteMoyenne" : "desc"})
+		.exec()
+		.then(document => res.status(200).json(document))
+		.catch(err => res.status(500).send())
+})
+
  app.patch("/Post/:id", async (req, res) => {
  	try {
  		const { id } = req.params
