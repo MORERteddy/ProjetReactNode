@@ -7,6 +7,7 @@ const optionMangoos = { useNewUrlParser: true, useUnifiedTopology: true }
 mongoose.connect(process.env.CONNECTION_URI, optionMangoos)
 
 const app=express()
+
 app.use(express.json())
 app.get("/",async(req,res)=>{
 	await Post.find()
@@ -20,5 +21,7 @@ app.post("/Post",async(req,res)=>{
 	const document = await newPost.save()
 	res.status(201).json(document)
 })
+
+
 
 app.listen(process.env.PORT,()=>{console.log(`serveur lancé http://localhost:${process.env.PORT}`)})
