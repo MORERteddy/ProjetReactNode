@@ -16,6 +16,8 @@ app.get("/Post",async(req,res)=>{
 		.catch(err => res.status(500).send())
 })
 
+
+
 app.post("/Post",async(req,res)=>{
     const newPost = new Post(req.body)
 	const document = await newPost.save()
@@ -29,19 +31,19 @@ app.get("/Post/:id",async(req,res)=>{
     .catch(err => res.status(500).send())
 })
 
-app.patch("/Post/:id", async (req, res) => {
-	try {
-		const { id } = req.params
-		const acceptedField = ["voteCount", "comments", "noteMoyenne","titre","body","image"]
-		const keys = Object.keys(req.body).filter(key => acceptedField.includes(key))
-		const fieldsToUpdate = {}
-		keys.map(key => fieldsToUpdate[key] = req.body[key])
-		const doc = await Post.findByIdAndUpdate(id, fieldsToUpdate, {new: true})
-		res.json(doc)
-	} catch {
-		res.status(500).send("Erreur lors de la mise à jour")
-	}
-})
+ app.patch("/Post/:id", async (req, res) => {
+ 	try {
+ 		const { id } = req.params
+ 		const acceptedField = ["voteCount", "comments", "noteMoyenne","titre","body","image"]
+ 		const keys = Object.keys(req.body).filter(key => acceptedField.includes(key))
+ 		const fieldsToUpdate = {}
+ 		keys.map(key => fieldsToUpdate[key] = req.body[key])
+ 		const doc = await Post.findByIdAndUpdate(id, fieldsToUpdate, {new: true})
+ 		res.json(doc)
+ 	} catch {
+ 		res.status(500).send("Erreur lors de la mise à jour")
+ 	}
+ })
 app.get("/User",async(req,res)=>{
 	await User.find()
 		.exec()
