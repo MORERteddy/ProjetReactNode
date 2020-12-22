@@ -2,7 +2,7 @@ const express = require("express");
 const {getSearch, addSearch} = require("../controllers/Search")
 
 const router = express.Router();
-router.get("/serach", getSearch)
-router.post("/serach", addSearch)
+router.get("/search", getSearch)
+router.post("/search", addSearch)
 
 module.exports = router;
