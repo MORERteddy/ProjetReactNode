@@ -1,20 +1,22 @@
 const express = require("express")
 const Post = require("../models/post");
-const cors = require('cors')
 
 
-const corsOptions = {
-    origin: "http://localhost:3000",
-  }
 
 const app=express()
-app.use(cors(corsOptions))
-const getAllPosts = app.get("/posts",async(req,res)=>{
+// const getAllPosts = app.get("/posts",async(req,res)=>{
+// 	await Post.find()
+// 		.exec()
+// 		.then(document => res.status(200).json(document))
+// 		.catch(err => res.status(500).send())
+// })
+
+const getAllPosts = async(req,res)=>{
 	await Post.find()
 		.exec()
 		.then(document => res.status(200).json(document))
 		.catch(err => res.status(500).send())
-})
+}
 
 const addPost = app.post("/post",async(req,res)=>{
 	console.log(req.body)
@@ -51,7 +53,7 @@ const getPostByNote = app.get("/",async(req,res)=>{
  	}
  })
 
-const getSearch = app.get("/search", cors(corsOptions),async(req,res)=>{
+const getSearch = app.get("/search",async(req,res)=>{
 	await Search.find()
 		.exec()
 		.then(document => res.status(200).json(document))

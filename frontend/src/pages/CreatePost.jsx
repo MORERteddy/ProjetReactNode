@@ -19,14 +19,15 @@ export default function CreatePost(props) {
 		const optionFetch = {
             method: "POST",
             mode: "cors",
-
-			body: {
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify({
                 titre: title,
 				body: body,
 				image:
-					"https://www.google.com/search?q=image+test&client=firefox-b-d&tbm=isch&source=iu&ictx=1&fir=qAVxLck55vb35M%252CCTeR5qJuDjA1jM%252C_&vet=1&usg=AI4_-kT5J6DIHIEVBCX081gEtlFElULUtg&sa=X&ved=2ahUKEwiHgIWrrd_tAhUky4UKHU2LBysQ9QF6BAgIEAE#imgrc=qAVxLck55vb35M",
-				author: "test",
-			},
+					"https://s1.o7planning.com/fr/12077/images/24547908.png",
+                author: "test",
+                created_at: Date.now().toString()
+			}),
 		}
 		console.log(optionFetch.body)
 		event.preventDefault()

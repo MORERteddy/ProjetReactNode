@@ -33,8 +33,9 @@ connectToDatabase();
 
 const app=express()
 
+// Middlewares
 app.use(express.json())
-
+app.use(cors(corsOptions))
 // routes
 app.use("/", userRoutes);
 app.use("/", postRoutes);
