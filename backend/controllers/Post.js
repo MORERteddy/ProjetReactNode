@@ -7,8 +7,9 @@ const corsOptions = {
   }
 
 const app=express()
+app.use(cors(corsOptions))
 
-const getAllPosts = app.get("/posts", cors(corsOptions),async(req,res)=>{
+const getAllPosts = app.get("/posts",async(req,res)=>{
 	await Post.find()
 		.exec()
 		.then(document => res.status(200).json(document))
