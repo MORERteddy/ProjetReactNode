@@ -28,7 +28,14 @@ const connectToDatabase = async () =>{
 }
 
 connectToDatabase();
+<<<<<<< HEAD
 
+const optionMangoos = { useNewUrlParser: true, useUnifiedTopology: true }
+
+mongoose.connect(process.env.CONNECTION_URI, optionMangoos)
+=======
+
+>>>>>>> 24a4f14fbe0918f31649a77915bbd440edc4dd81
 
 
 const app=express()
@@ -48,8 +55,11 @@ app.use("/", postRoutes);
 // })
 
 const port = process.env.PORT
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 24a4f14fbe0918f31649a77915bbd440edc4dd81
 
 app.listen(port,(err) => {
 	if(err) console.log(err);

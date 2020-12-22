@@ -11,6 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+  "argon2": "^0.27.1",
+  "cors": "^2.8.5",
+  "dotenv": "^8.2.0",
+  "express": "^4.17.1",
+  "mongodb": "^3.6.3",
+  "mongoose": "^5.11.8"
+=======
 
     "argon2": "^0.27.1",
     "cors": "^2.8.5",
@@ -18,5 +26,6 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.8"
+>>>>>>> 24a4f14fbe0918f31649a77915bbd440edc4dd81
   }
 }
