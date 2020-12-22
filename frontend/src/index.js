@@ -5,11 +5,9 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-       <App />     
-    </Provider>
-  </React.StrictMode>,
+  <div>
+    <App />
+  </div>,    
   document.getElementById('root')
 );
 
