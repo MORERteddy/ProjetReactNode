@@ -2,13 +2,14 @@ const express = require("express")
 const Post = require("../models/post");
 const cors = require('cors')
 
+
 const corsOptions = {
     origin: "http://localhost:3000",
   }
 
 const app=express()
-
-const getAllPosts = app.get("/posts", cors(corsOptions),async(req,res)=>{
+app.use(cors(corsOptions))
+const getAllPosts = app.get("/posts",async(req,res)=>{
 	await Post.find()
 		.exec()
 		.then(document => res.status(200).json(document))
@@ -16,6 +17,7 @@ const getAllPosts = app.get("/posts", cors(corsOptions),async(req,res)=>{
 })
 
 const addPost = app.post("/post",async(req,res)=>{
+	console.log(req.body)
     const newPost = new Post(req.body)
 	const document = await newPost.save()
 	res.status(201).json(document)
@@ -49,11 +51,25 @@ const getPostByNote = app.get("/",async(req,res)=>{
  	}
  })
 
+const getSearch = app.get("/search", cors(corsOptions),async(req,res)=>{
+	await Search.find()
+		.exec()
+		.then(document => res.status(200).json(document))
+		.catch(err => res.status(500).send())
+})
+
+const addSearch = app.post("/searchs",async(req,res)=>{
+    const newSearch = new Post(req.body)
+	const document = await newSearch.save()
+	res.status(201).json(document)
+})
 
 module.exports = {
     getAllPosts,
     addPost,
     getPostById,
     getPostByNote,
-    UpdatePost
+	UpdatePost,
+	getSearch,
+    addSearch
 }
