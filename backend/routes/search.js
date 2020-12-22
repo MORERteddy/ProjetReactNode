@@ -1,8 +1,8 @@
 const express = require("express");
-const {getSearch, addSearch} = require("../controllers/Search")
+const {getSearch, addSearch} = require("../controllers/Post")
 
 const router = express.Router();
 router.get("/search", getSearch)
-router.post("/search", addSearch)
+router.post("/searchs", addSearch)
 
 module.exports = router;

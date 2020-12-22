@@ -19,15 +19,21 @@ function Search() {
     }, []);
     return (
      <div>
-        {search
-          .filter((titre) => titre.includes("pas encore"))
-          .map((s, index) => {
-            return (
-              <div key={index}>
-                {s._id} {s.titre}
-              </div>
-            );
-          })}
+ 
+ 
+        <div class="form-container">
+          <h2 className="register-form-title">Recherche</h2>
+          <form onSubmit={getSearch}>
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Recherche ... "
+            />
+            <button type="submit" class="btn btn-primary">
+              Rechercher
+            </button>
+          </form>
+        </div>
       </div>
     );
 }

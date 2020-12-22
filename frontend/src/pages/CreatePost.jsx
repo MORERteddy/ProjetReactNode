@@ -8,20 +8,34 @@ export default function CreatePost(props) {
 		author: "",
 		comments: [],
 	})
+	const [title, setTitle] = useState("")
+	const [body, setBody] = useState("")
 
 	const [image, setImage] = useState(null)
 
 	useEffect(() => {}, [])
 
 	const handleFormSubmit = event => {
-		const optionFetch = { method: "POST", body: {
+		const optionFetch = {
+            method: "POST",
+            mode: "cors",
 
-        } }
+			body: {
+                titre: title,
+				body: body,
+				image:
+					"https://www.google.com/search?q=image+test&client=firefox-b-d&tbm=isch&source=iu&ictx=1&fir=qAVxLck55vb35M%252CCTeR5qJuDjA1jM%252C_&vet=1&usg=AI4_-kT5J6DIHIEVBCX081gEtlFElULUtg&sa=X&ved=2ahUKEwiHgIWrrd_tAhUky4UKHU2LBysQ9QF6BAgIEAE#imgrc=qAVxLck55vb35M",
+				author: "test",
+			},
+		}
+		console.log(optionFetch.body)
 		event.preventDefault()
 		fetch("http://localhost:4000/post", optionFetch)
 			.then(res => res.json())
 			.then(data => {
-				setPost(data)
+				console.log(data)
+				console.log(event)
+				return data
 			})
 	}
 
@@ -48,8 +62,8 @@ export default function CreatePost(props) {
 					name="title"
 					required
 					className="form-control input"
-					onChange={handleInputChange}
-					value={post.title}
+					onChange={e => setTitle(e.target.value)}
+					value={title}
 					placeholder="Titre"
 					autoComplete="off"
 				/>
@@ -57,8 +71,8 @@ export default function CreatePost(props) {
 					className="textarea"
 					name="body"
 					placeholder="Description ..."
-					value={post.body}
-					onChange={handleInputChange}
+					onChange={e => setBody(e.target.value)}
+					value={body}
 					cols="30"
 					rows="10"
 				/>
