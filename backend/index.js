@@ -29,11 +29,6 @@ const connectToDatabase = async () =>{
 
 connectToDatabase();
 
-const optionMangoos = { useNewUrlParser: true, useUnifiedTopology: true }
-
-mongoose.connect(process.env.CONNECTION_URI, optionMangoos)
-
-
 
 const app=express()
 

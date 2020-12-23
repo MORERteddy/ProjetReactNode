@@ -7,7 +7,7 @@ function Home() {
   const [posts, setPosts] = useState([]);
 
   const getData = () => {
-    fetch("http://localhost:4000/posts")
+    fetch("http://localhost:4000/")
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -32,7 +32,7 @@ function Home() {
                 { console.log(post.image)}
             </div>
             <div className="post-content">
-              <NavLink to={`/post/${post._id}`}>
+              <NavLink to={`/PostDetails/${post._id}`}>
                 <h3 className="post-title font-medium">{post.titre}</h3>
               </NavLink>
               <h5 className="post-details">
@@ -49,7 +49,7 @@ function Home() {
                 <div className="down">
                   &#8595;
                 </div>
-                <div className="count">{post.__v}</div>
+                <div className="count">{post.noteMoyenne}</div>
               </div>
             </div>
           </div>

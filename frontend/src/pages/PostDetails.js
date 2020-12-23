@@ -16,6 +16,7 @@ function PostDetails(props) {
       postRef.get().then(doc =>{   // unmounted
         if(isSubscribed){
         setPost({...doc.data(), id: doc.id});
+       
       }
   })
     return () =>(isSubscribed=false); // ComponentwillUnmount()
@@ -71,6 +72,7 @@ function PostDetails(props) {
 
 
   const renderPost = () => {
+    console.log(postRef)
     return (
       post && (
         <div className="post-show">
