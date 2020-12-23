@@ -1,4 +1,3 @@
-
 import Home from './pages/Home'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Navbar from './components/Navbar'
@@ -9,9 +8,7 @@ import Search from "./pages/Search"
 import ListePosts from "./pages/ListePosts"
 import EditComm from "./pages/EditComm"
 
-
 function App() {
-
 
   return (
 
@@ -26,11 +23,11 @@ function App() {
         <Route path="/EditComm/:id" exact  component ={EditComm}/>
       </Switch>
 
-
     </BrowserRouter>
     
 
   );
 }
+
 
 export default App;

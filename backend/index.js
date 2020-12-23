@@ -1,12 +1,26 @@
 const express = require("express")
+const mongoose = require("mongoose")
+const cors = require('cors')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+//const expressJwt = require('express-jwt')
+
 const Post = require("./models/post")
 const User = require("./models/user")
+
+
 require("dotenv").config()
-const cors = require('cors')
+const app=express()
+
 const corsOptions = {
     origin: "http://localhost:3000",
   }
-const mongoose = require("mongoose")
+
+app.use(express.json())
+app.use(cors(corsOptions))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended :true}))
+app.use(cookieParser())
 
 const userRoutes = require("./routes/user")
 const postRoutes = require("./routes/post")
@@ -31,25 +45,12 @@ const connectToDatabase = async () =>{
 connectToDatabase();
 
 
-const app=express()
 
-// Middlewares
-app.use(express.json())
-app.use(cors(corsOptions))
-// routes
-app.use("/", userRoutes);
-app.use("/", postRoutes);
-app.use("/", searchRoutes);
 
-// app.get("/",async(req,res)=>{
-// 	await Post.find()
-// 		.exec()
-// 		.then(document => res.status(200).json(document))
-// 		.catch(err => res.status(500).send())
-// })
+
+
 
 const port = process.env.PORT
-
 
 app.listen(port,(err) => {
 	if(err) console.log(err);

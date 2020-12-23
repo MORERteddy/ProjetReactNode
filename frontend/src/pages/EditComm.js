@@ -4,7 +4,7 @@ import moment from "moment";
 
 const EditComm =() => {
     const [post, setPost] = useState([]);
-    let { id } = useParams();
+    const { id } = useParams();
     const getData = () => {
       fetch("http://localhost:4000/Post/"+id)
         .then(res => res.json())

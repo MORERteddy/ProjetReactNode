@@ -2,15 +2,7 @@ const express = require("express")
 const Post = require("../models/post");
 const fs = require('fs')
 
-
-
 const app=express()
-// const getAllPosts = app.get("/posts",async(req,res)=>{
-// 	await Post.find()
-// 		.exec()
-// 		.then(document => res.status(200).json(document))
-// 		.catch(err => res.status(500).send())
-// })
 
 const getAllPosts = async(req,res)=>{
 	await Post.find()
@@ -34,7 +26,7 @@ const getPostById = app.get("/post/:id",async(req,res)=>{
 })
 
 const getPostByNote = app.get("/",async(req,res)=>{
-	await Post.find().sort({"noteMoyenne" : "desc"}).limit(4)
+	await Post.find().sort({"noteMoyenne" : "desc"}).limit(5)
 		.exec()
 		.then(document => res.status(200).json(document))
 		.catch(err => res.status(500).send())
@@ -67,6 +59,7 @@ const addSearch = app.post("/searchs",async(req,res)=>{
 	res.status(201).json(document)
 })
 
+
 const getImage = (req,res)=>{
 	console.log(req)
 	console.log(req.body)
@@ -78,6 +71,7 @@ const getImage = (req,res)=>{
 	  })
 }
 
+
 module.exports = {
     getAllPosts,
     addPost,
@@ -88,4 +82,5 @@ module.exports = {
 	addSearch,
 	getImage
 	
+
 }

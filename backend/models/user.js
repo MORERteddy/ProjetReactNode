@@ -1,14 +1,21 @@
 const mongoose = require('mongoose')
 const argon2 = require("argon2")
 
-const userSchema=new mongoose.Schema({
-    titre: {
+const userSchema = new mongoose.Schema({
+    name: {
         type:String,
+        trim: true,
         required:true
     },
     password: {
         type:String,
         required:true
+    },
+    email :{
+        type : String,
+        trim : true,
+        unique: true,
+        required : true
     }
 })
 
@@ -23,6 +30,5 @@ userSchema.pre("save", async function(){
     }
 })
 
-const User=mongoose.model("User",userSchema)
+module.exports = mongoose.model("User",userSchema)
 
-module.exports=User
