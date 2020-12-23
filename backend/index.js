@@ -10,6 +10,7 @@ const mongoose = require("mongoose")
 
 const userRoutes = require("./routes/user")
 const postRoutes = require("./routes/post")
+const searchRoutes = require("./routes/search")
 
 // connexion à la bdd
 
@@ -38,6 +39,7 @@ app.use(cors(corsOptions))
 // routes
 app.use("/", userRoutes);
 app.use("/", postRoutes);
+app.use("/", searchRoutes);
 
 // app.get("/",async(req,res)=>{
 // 	await Post.find()

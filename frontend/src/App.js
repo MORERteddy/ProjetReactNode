@@ -7,6 +7,7 @@ import {useState,useEffect} from "react"
 import CreatePost from "./pages/CreatePost"
 import Search from "./pages/Search"
 import ListePosts from "./pages/ListePosts"
+import EditComm from "./pages/EditComm"
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/createPost" exact component ={CreatePost}/>
         <Route path="/search" exact component ={Search}/>
         <Route path="/ListePosts" exact component ={ListePosts}/>
+        <Route path="/EditComm/:id" exact  component ={EditComm}/>
       </Switch>
 
 
