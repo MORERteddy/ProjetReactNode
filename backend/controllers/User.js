@@ -1,15 +1,19 @@
 const User = require ("../models/user");
 const express = require("express")
-// const _= require("loadash");
+//const _= require("loadash");
+
 const app=express()
 
-const createUser = app.post("/User",async(req,res)=>{
-    const newUser = new User(req.body)
-	const document = await newUser.save()
-	res.status(201).json(document)
-})
+const createUser = (req,res) => {
+    const {name, email, password} = req.body;
+    const newUser = new User({name, email, password})
+	newUser.save((err, user) => {
+        if (err) res.json({error: err})
+        res.json(user)
+    })
+}
 
-const getUserById = (req, res, id)=>{
+const getUserById = (req, res, next,id)=>{
     User.findById(id).exec((err, user)=>{
         if(err || !user) res.json({error: err})
         req.profile =user;
@@ -17,15 +21,22 @@ const getUserById = (req, res, id)=>{
     })
 }
 
-const getUser = app.get("/User",async(req,res)=>{
-	await User.find()
-		.exec()
-		.then(document => res.status(200).json(document))
-		.catch(err => res.status(500).send())
-})
+const getAlltUsers = (req,res) => {
+    User.find((err, users) =>{
+        if(err || !users) res.json({error: err})
+        res.json(users)
+    })
+}
+
+const getUser = (req,res) => {
+    res.json(req.profile)
+}
+
+
 
 module.exports = {
     createUser,
     getUserById,
     getUser,
+    getAlltUsers
 }
