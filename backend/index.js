@@ -45,6 +45,9 @@ const connectToDatabase = async () =>{
 connectToDatabase();
 
 
+app.use("/", userRoutes);
+app.use("/", postRoutes);
+app.use("/", searchRoutes);
 
 
 
