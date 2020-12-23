@@ -16,8 +16,11 @@ function Navbar() {
 				<Link to="/search" className="link">
 					Recherche
 				</Link>
+				<Link to="/ListePosts" className="link">
+					liste des articles
+				</Link>
 				<Link to="/CreatePost" className="link">
-					Creer un Article
+					Creer un article
 				</Link>
 				<Link to="/login" className="link">
 					Connexion

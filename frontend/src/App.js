@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import {useState,useEffect} from "react"
 import CreatePost from "./pages/CreatePost"
 import Search from "./pages/Search"
+import ListePosts from "./pages/ListePosts"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" exact component ={Register}/>
         <Route path="/createPost" exact component ={CreatePost}/>
         <Route path="/search" exact component ={Search}/>
+        <Route path="/ListePosts" exact component ={ListePosts}/>
       </Switch>
 
 
