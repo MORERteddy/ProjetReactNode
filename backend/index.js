@@ -25,7 +25,9 @@ app.use(cookieParser())
 const userRoutes = require("./routes/user")
 const postRoutes = require("./routes/post")
 const searchRoutes = require("./routes/search")
-
+app.use("/", userRoutes);
+app.use("/", postRoutes);
+app.use("/", searchRoutes);
 // connexion à la bdd
 
 const connectToDatabase = async () =>{
@@ -45,9 +47,7 @@ const connectToDatabase = async () =>{
 connectToDatabase();
 
 
-app.use("/", userRoutes);
-app.use("/", postRoutes);
-app.use("/", searchRoutes);
+
 
 
 
