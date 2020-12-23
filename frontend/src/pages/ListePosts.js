@@ -1,51 +1,34 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
+import { NavLink } from "react-router-dom"
+import moment from "moment"
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
-import moment from "moment";
-//import axios from 'axios';
 
-
-
-function Home() {
-  const [posts, setPosts] = useState([]);
+function ListePosts() {
+  const [lposts, setLposts] = useState([])
 
   const getData = () => {
-    fetch("http://localhost:4000/")
+    fetch("http://localhost:4000/Posts")
       .then(res => res.json())
       .then(data => {
-      //  console.log(data);
-        setPosts(data);
+        console.log(data);
+        setLposts(data);
       });
   };
 
+
   useEffect(() => {
     getData();
-    //console.log(posts);
+    console.log(lposts);
   }, []);
-
-  //console.log(post._v)
-
-  // const voteUp = postId => {
-  //   const myPost = firebase.collection("posts").doc(postId);
-  //   myPost.get().then(doc => {
-  //     if (doc.exists) {
-  //       const previousCount = doc.data().vote_count;
-  //       myPost.update({ vote_count: previousCount + 1 });
-  //     }
-  //   });
-  // };
 
   const renderPosts = () => {
     return (
-      posts &&
-      posts.map((post, index) => (
+      lposts &&
+      lposts.map((post, index) => (
         <div key={index}>
           <div className="post">
             <div className="post-image">
               <img src={post.image} alt="" />
+                { console.log(post.image)}
             </div>
             <div className="post-content">
               <NavLink to={`/PostDetails/${post._id}`}>
@@ -83,9 +66,5 @@ function Home() {
     </div>
   );
 }
-export default Home;
+export default ListePosts;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67

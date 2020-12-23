@@ -16,8 +16,11 @@ function Navbar() {
 				<Link to="/search" className="link">
 					Recherche
 				</Link>
+				<Link to="/ListePosts" className="link">
+					liste des articles
+				</Link>
 				<Link to="/CreatePost" className="link">
-					Creer un Article
+					Creer un article
 				</Link>
 				<Link to="/login" className="link">
 					Connexion
@@ -28,5 +31,9 @@ function Navbar() {
 			</div>
 		</div>
 	)
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
 }
 export default Navbar

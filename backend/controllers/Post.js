@@ -1,5 +1,6 @@
 const express = require("express")
 const Post = require("../models/post");
+const fs = require('fs')
 
 const app=express()
 
@@ -58,7 +59,20 @@ const addSearch = app.post("/searchs",async(req,res)=>{
 	res.status(201).json(document)
 })
 
+<<<<<<< HEAD
 
+=======
+const getImage = (req,res)=>{
+	console.log(req)
+	console.log(req.body)
+	fs.writeFile("./image2", req.body.file,function (err,data) {
+		if (err) {
+		  return console.log(err)
+		}
+		console.log(data)
+	  })
+}
+>>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
 
 module.exports = {
     getAllPosts,
@@ -68,4 +82,9 @@ module.exports = {
 	UpdatePost,
 	getSearch,
 	addSearch,
+<<<<<<< HEAD
+=======
+	getImage
+	
+>>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
 }
