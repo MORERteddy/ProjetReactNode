@@ -1,7 +1,9 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import moment from "moment";
+//import axios from 'axios';
+
+
 
 function Home() {
   const [posts, setPosts] = useState([]);
@@ -10,16 +12,27 @@ function Home() {
     fetch("http://localhost:4000/posts")
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+      //  console.log(data);
         setPosts(data);
       });
   };
 
-
   useEffect(() => {
     getData();
-    console.log(posts);
+    //console.log(posts);
   }, []);
+
+  //console.log(post._v)
+
+  // const voteUp = postId => {
+  //   const myPost = firebase.collection("posts").doc(postId);
+  //   myPost.get().then(doc => {
+  //     if (doc.exists) {
+  //       const previousCount = doc.data().vote_count;
+  //       myPost.update({ vote_count: previousCount + 1 });
+  //     }
+  //   });
+  // };
 
   const renderPosts = () => {
     return (
@@ -29,7 +42,6 @@ function Home() {
           <div className="post">
             <div className="post-image">
               <img src={post.image} alt="" />
-                { console.log(post.image)}
             </div>
             <div className="post-content">
               <NavLink to={`/post/${post._id}`}>
@@ -68,36 +80,5 @@ function Home() {
   );
 }
 export default Home;
-=======
-import React from "react"
-import { useState, useEffect } from "react"
 
-function Home() {
-	const [posts, setPosts] = useState([])
 
-	const getData = () => {
-		fetch("http://localhost:4000/posts")
-			.then(res => res.json())
-			.then(data => {
-                setPosts(data)
-
-			})
-	}
-	useEffect(() => {
-		getData()
-		console.log(posts)
-	}, [])
-	return (
-		<div>
-			{posts.map((post, index) => {
-				return (
-					<div key={index}>
-						{post._id} {post.titre}
-					</div>
-				)
-			})}
-		</div>
-	)
-}
-export default Home
->>>>>>> 24a4f14fbe0918f31649a77915bbd440edc4dd81

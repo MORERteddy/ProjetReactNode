@@ -98,7 +98,7 @@ body {
 hr {
   height: 3px;
   padding: 0;
-  width: 80%;
+  width: 70%;
   font-size: 150px;
   background-color: rgb(185, 146, 170);
   border: 0;
@@ -111,7 +111,7 @@ hr {
   background: beige;
   border-radius: 5px;
   cursor: pointer;
-  width: 170%;
+  width: 70%;
   float: left;
 }
 
