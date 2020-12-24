@@ -69,8 +69,6 @@ function PostDetails(props) {
   })
 }
 
-
-
   const renderPost = () => {
     console.log(postRef)
     return (

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import moment from "moment";
@@ -85,7 +81,3 @@ function Home() {
 }
 export default Home;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67

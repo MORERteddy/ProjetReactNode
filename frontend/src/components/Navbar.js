@@ -31,9 +31,5 @@ function Navbar() {
 			</div>
 		</div>
 	)
-<<<<<<< HEAD
-=======
-
->>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
 }
 export default Navbar
