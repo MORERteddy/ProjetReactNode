@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, Component } from "react"
 import axios, { post } from "axios"
+import {useHistory } from "react-router-dom"
 
 export default function CreatePost(props) {
 	const [post, setPost] = useState({
@@ -9,6 +10,7 @@ export default function CreatePost(props) {
 		author: "",
 		comments: [],
 	})
+	const history = useHistory();
 	const [title, setTitle] = useState("")
 	const [body, setBody] = useState("")
 
@@ -34,6 +36,7 @@ export default function CreatePost(props) {
 		event.preventDefault()
 
 		fetch("http://localhost:4000/post", optionFetch)
+		history.push('/')
 	}
 
 

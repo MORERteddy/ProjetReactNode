@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function Search() {
  
-    const [search, setSearch] = useState([]);
+    const [search, setSearch] = useState("");
     const [results, setResults] = useState([]);
 
     const getSearch = () => {
@@ -16,10 +16,10 @@ function Search() {
         console.log("valeur result apres setResult" + results);
       })
     };
-    /*useEffect(() => {
+    useEffect(() => {
       getSearch();
       console.log(search);
-    }, []);*/
+    }, []);
     return (
      <div>
  
