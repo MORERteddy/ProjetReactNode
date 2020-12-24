@@ -26,7 +26,7 @@ const getPostById = app.get("/post/:id",async(req,res)=>{
 })
 
 const getPostByNote = app.get("/",async(req,res)=>{
-	await Post.find().sort({"noteMoyenne" : "desc"}).limit(5)
+	await Post.find().sort({"noteMoyenne" : "desc"}).limit()
 		.exec()
 		.then(document => res.status(200).json(document))
 		.catch(err => res.status(500).send())
@@ -59,9 +59,7 @@ const addSearch = app.post("/searchs",async(req,res)=>{
 	res.status(201).json(document)
 })
 
-<<<<<<< HEAD
 
-=======
 const getImage = (req,res)=>{
 	console.log(req)
 	console.log(req.body)
@@ -72,7 +70,6 @@ const getImage = (req,res)=>{
 		console.log(data)
 	  })
 }
->>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
 
 module.exports = {
     getAllPosts,
@@ -82,9 +79,5 @@ module.exports = {
 	UpdatePost,
 	getSearch,
 	addSearch,
-<<<<<<< HEAD
-=======
 	getImage
-	
->>>>>>> e5fb2d5a1779d2827d29730ae3fe1d6779d18b67
 }

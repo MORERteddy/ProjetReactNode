@@ -21,13 +21,6 @@ const signout = (req, res) => {
     res.json({message : "User déconnécté"})
 }
 
-// const requireSignin = expressJwt({
-//     secret : process.env.JWT_SECRET,
-//     userProperty : "auth",
-//     algorithms : ["HS256"],
-// })
-
-
 module.exports ={
     signin,
     signout,
