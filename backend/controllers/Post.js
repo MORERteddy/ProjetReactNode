@@ -2,8 +2,6 @@ const express = require("express")
 const Post = require("../models/post");
 const fs = require('fs')
 
-
-
 const getAllPosts = async(req,res)=>{
 	await Post.find()
 		.exec()
@@ -26,6 +24,7 @@ const getPostById=async(req,res)=>{
 }
 
 const getPostByNote = async(req,res)=>{
+
 	await Post.find().sort({"noteMoyenne" : "desc"}).limit()
 
 		.exec()
@@ -48,7 +47,7 @@ const getPostByNote = async(req,res)=>{
  }
 
 const getSearch = async(req,res)=>{
-	await Search.find()
+	await Post.find()
 		.exec()
 		.then(document => res.status(200).json(document))
 		.catch(err => res.status(500).send())

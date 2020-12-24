@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink, useParams,useHistory } from "react-router-dom"
 import moment from "moment"
+
 
 const EditComm = () => {
 	const [post, setPost] = useState([])
-	const [noteMoyenne, setNoteMoyenne] = useState(0)
+	const [noteMoyenne, setNoteMoyenne] = useState()
   const [comments, setComments] = useState([])
   const [postcomments, setPostComments] = useState([])
-	const { id } = useParams()
+  const { id } = useParams()
+  const history = useHistory();
+
 	const getData = () => {
 		fetch("http://localhost:4000/Post/" + id)
 			.then(res => res.json())
@@ -44,7 +47,7 @@ const EditComm = () => {
 		event.preventDefault()
 
     fetch("http://localhost:4000/Post/"+id, optionFetch)
-
+    history.push('/')
   }
 
 	return (
@@ -70,6 +73,7 @@ const EditComm = () => {
 					</div>
     
 				</div>
+        <hr />
 <div className="post-body"> 
 
 </div>

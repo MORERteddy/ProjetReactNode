@@ -3,23 +3,24 @@ import { useState, useEffect } from "react";
 
 function Search() {
  
-    const [search, setSearch] = useState([]);
+    const [search, setSearch] = useState("");
     const [results, setResults] = useState([]);
 
     const getSearch = () => {
       fetch("http://localhost:4000/search")
-        .then((res) => res.json())
+      .then((res) => res.json())
       .then((data) => {
         console.log("valeur result " + results);
-        setResults(data);
         console.log("valeur search apres setResult" + search);
         console.log("valeur result apres setResult" + results);
+      setResults(data);
+
       })
     };
-    /*useEffect(() => {
+    useEffect(() => {
       getSearch();
       console.log(search);
-    }, []);*/
+    }, []);
     return (
      <div>
  
