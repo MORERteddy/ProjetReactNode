@@ -11,7 +11,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
 
+=======
+    "argon2": "^0.27.1",
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
@@ -21,7 +25,11 @@
     "express-jwt": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.3",
+<<<<<<< HEAD
     "mongoose": "^5.11.8",
     "argon2": "^0.27.1"
+=======
+    "mongoose": "^5.11.8"
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
   }
 }

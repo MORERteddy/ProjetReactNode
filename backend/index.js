@@ -16,9 +16,18 @@ const corsOptions = {
     origin: "http://localhost:3000",
   }
 
+app.use(express.json())
+app.use(cors(corsOptions))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended :true}))
+app.use(cookieParser())
+
 const userRoutes = require("./routes/user")
 const postRoutes = require("./routes/post")
-
+const searchRoutes = require("./routes/search")
+app.use("/", userRoutes);
+app.use("/", postRoutes);
+app.use("/", searchRoutes);
 // connexion à la bdd
 
 const connectToDatabase = async () =>{
@@ -37,21 +46,22 @@ const connectToDatabase = async () =>{
 
 connectToDatabase();
 
+<<<<<<< HEAD
 const optionMangoos = { useNewUrlParser: true, useUnifiedTopology: true }
 
 mongoose.connect(process.env.CONNECTION_URI, optionMangoos)
-
-// Middlewares
-app.use(express.json())
-app.use(cors(corsOptions))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended :true}))
-app.use(cookieParser())
-// routes
-app.use("/", userRoutes);
-app.use("/", postRoutes);
+=======
 
 
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
+
+
+
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 const port = process.env.PORT
 
 app.listen(port,(err) => {

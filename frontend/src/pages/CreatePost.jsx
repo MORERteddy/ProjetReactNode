@@ -12,7 +12,7 @@ export default function CreatePost(props) {
 	const [title, setTitle] = useState("")
 	const [body, setBody] = useState("")
 
-	const [image, setImage] = useState()
+	const [image, setImage] = useState("")
 	const [selectedFile, setSelectedFile] = useState()
 
 	useEffect(() => {}, [])
@@ -36,40 +36,21 @@ export default function CreatePost(props) {
 		fetch("http://localhost:4000/post", optionFetch)
 	}
 
-	const handleInputChange = event => {
-		setPost({
-			...post,
-			[event.target.name]: event.target.value,
-		})
-	}
 
-	const handleFileInput = event => {
+	const handleFileInput = (event) => {
 		const files = event.target.files
 		const reader = new FileReader()
+		let lien =""
 		reader.readAsDataURL(files[0])
-		reader.onload = e => {
-			const url = "http://localhost:4000/post/image"
-			const formData = { file: e.target.result }
-			console.log(formData)
-			axios
-				.post(url, formData)
-				.then(response => console.log("test"))
-				.catch(function (erreur) {
-					console.log("erreur" + erreur)
-				})
+		 reader.onload = e => {		
+		setImage(e.target.result)
 		}
+	
+
+				
+		
 	}
-		const handleFileInput2 = event => {
-		 console.log(event.target.files[0])
-		 setSelectedFile(event.target.files[0])
-		 const formData = new FormData()
-		 formData.append(
-		 	"public",
-		 	selectedFile,
-			selectedFile.name
-		   )
-		   axios.post("http://localhost:4000/post/image", formData);
-	}
+
 
 	return (
 		<div className="form-container">
@@ -95,13 +76,13 @@ export default function CreatePost(props) {
 					rows="10"
 				/>
 				<input
-					type="url"
+					type="file"
 					name="image"
 					placeholder="Url de l'image"
 					required
 					className="form-control input"
-					onChange={e => setImage(e.target.value)}
-					value={image}
+					onChange={handleFileInput}
+					
 				/>
 				<div>
 					<button className="btn btn-primary" type="submit">

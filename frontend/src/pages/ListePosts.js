@@ -31,7 +31,7 @@ function ListePosts() {
                 { console.log(post.image)}
             </div>
             <div className="post-content">
-              <NavLink to={`/PostDetails/${post._id}`}>
+              <NavLink to={`/EditComm/${post._id}`}>
                 <h3 className="post-title font-medium">{post.titre}</h3>
               </NavLink>
               <h5 className="post-details">

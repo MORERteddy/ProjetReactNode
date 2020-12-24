@@ -5,10 +5,18 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
+<<<<<<< HEAD
+=======
+
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 
   <React.StrictMode>
        <App />     
   </React.StrictMode>,
+<<<<<<< HEAD
+=======
+
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
   document.getElementById('root')
 );
 
