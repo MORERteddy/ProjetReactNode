@@ -43,12 +43,9 @@ function ListePosts() {
               <p className="post-body">{post.body}</p>
               <div className="votes">
                 <div className="up">
-                  &#8593;
+                &#9733;&#9733;&#9733;  
                 </div>
-                <div className="down">
-                  &#8595;
-                </div>
-                <div className="count">{post.noteMoyenne}</div>
+                <div className="count"></div>
               </div>
             </div>
           </div>

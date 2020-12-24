@@ -129,8 +129,7 @@ function PostDetails(props) {
                     {post.author } |{" "}
                     {moment(comment.created)
                       .local("fr")
-                      .format("MMMM Do YYYY, h:mm a")} | {" "}
-                      
+                      .format("MMMM Do YYYY, h:mm a")} | {" "}                
                   </p>
                   <p className="comments">{comment.text}</p>
                 </div>

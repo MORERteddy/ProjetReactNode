@@ -46,22 +46,11 @@ const connectToDatabase = async () =>{
 
 connectToDatabase();
 
-<<<<<<< HEAD
 const optionMangoos = { useNewUrlParser: true, useUnifiedTopology: true }
 
 mongoose.connect(process.env.CONNECTION_URI, optionMangoos)
-=======
 
 
->>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
-
-
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 const port = process.env.PORT
 
 app.listen(port,(err) => {

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function Register() {
+function Register(props) {
     const [user, setUser] = useState({
         name : "",
         email: "",
@@ -27,6 +27,8 @@ function Register() {
 
         event.preventDefault();
         fetch("http://localhost:4000/users/create", optionFetch)
+        props.history.push('/');
+
     }
 
     console.log(user.name, user.email, user.password)

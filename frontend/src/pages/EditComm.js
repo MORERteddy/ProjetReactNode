@@ -66,16 +66,12 @@ const EditComm = () => {
 							</span>
 						</h5>
 						<p className="post-body">{post.body}</p>
-						<div className="count">Nombre de vote : {post.noteMoyenne}</div>
-							<div className="count">Note :{post.noteMoyenne}</div>
 						
 					</div>
     
 				</div>
 <div className="post-body"> 
-<ul>
-          {postcomments.length>0?post.comments.map((comment, index) => {<li key={index} >{comment}</li> }):<></>}
-        </ul>
+
 </div>
 
 				<hr />

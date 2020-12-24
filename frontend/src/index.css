@@ -103,6 +103,7 @@ hr {
   background-color: rgb(185, 146, 170);
   border: 0;
   padding: 1px 0;
+  margin-left: 0px;
 }
 .post,
 .post-show {
