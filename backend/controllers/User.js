@@ -22,9 +22,8 @@ const getUserById = (req, res, next,id)=>{
     })
 }
 
-const getUserLogin = (req, res,Email)=>{
+const getUserLogin = (req, res)=>{
 
-        console.log(Email)
         console.log(req)
         const user = User.findOne({email:Email})
         console.log(user)
