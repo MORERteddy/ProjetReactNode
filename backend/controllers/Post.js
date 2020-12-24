@@ -47,7 +47,7 @@ const getPostByNote = async(req,res)=>{
  }
 
 const getSearch = async(req,res)=>{
-	await Search.find()
+	await Post.find()
 		.exec()
 		.then(document => res.status(200).json(document))
 		.catch(err => res.status(500).send())
