@@ -8,6 +8,7 @@ import Search from "./pages/Search"
 import ListePosts from "./pages/ListePosts"
 import EditComm from "./pages/EditComm"
 import PostDetails from "./pages/PostDetails"
+import Login from "./pages/Login"
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/ListePosts" exact component ={ListePosts}/>
         <Route path="/EditComm/:id" exact  component ={EditComm}/>
         <Route path="/PostDetails/:id" exact  component ={PostDetails}/>
+        <Route path="/Login/" exact  component ={Login}/>
 
       </Switch>
 

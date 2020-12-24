@@ -10,7 +10,6 @@ function Search() {
       fetch("http://localhost:4000/search")
       .then((res) => res.json())
       .then((data) => {
-        console.log("valeur result " + results);
         console.log("valeur search apres setResult" + search);
         console.log("valeur result apres setResult" + results);
       setResults(data);
