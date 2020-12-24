@@ -11,6 +11,7 @@ import PostDetails from "./pages/PostDetails"
 import Login from "./pages/Login"
 
 function App() {
+
   return (
 
     <BrowserRouter>
@@ -29,10 +30,8 @@ function App() {
 
     </BrowserRouter>
     
-
   );
 }
-
 
 
 export default App;

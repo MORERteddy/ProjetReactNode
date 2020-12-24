@@ -50,8 +50,6 @@ const optionMangoos = { useNewUrlParser: true, useUnifiedTopology: true }
 
 mongoose.connect(process.env.CONNECTION_URI, optionMangoos)
 
-
-
 const port = process.env.PORT
 
 app.listen(port,(err) => {

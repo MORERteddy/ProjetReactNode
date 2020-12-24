@@ -22,11 +22,8 @@ function Navbar() {
 				<Link to="/CreatePost" className="link">
 					Creer un article
 				</Link>
-				<Link to="/Login" className="link">
-					Connexion
-				</Link>
 				<Link to="/register" className="link">
-					Inscription
+					Connexion
 				</Link>
 			</div>
 		</div>

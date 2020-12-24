@@ -2,8 +2,6 @@ const express = require("express")
 const Post = require("../models/post");
 const fs = require('fs')
 
-
-
 const getAllPosts = async(req,res)=>{
 	await Post.find()
 		.exec()
@@ -26,7 +24,9 @@ const getPostById=async(req,res)=>{
 }
 
 const getPostByNote = async(req,res)=>{
-	await Post.find().sort({"noteMoyenne" : "desc"}).limit(5)
+
+	await Post.find().sort({"noteMoyenne" : "desc"}).limit()
+
 		.exec()
 		.then(document => res.status(200).json(document))
 		.catch(err => res.status(500).send())
@@ -74,7 +74,8 @@ const getImage = (req,res)=>{
 module.exports = {
     getAllPosts,
     addPost,
-    getPostById,
+	getPostById,
+	UpdatePost,
     getPostByNote,
 	UpdatePost,
 	getSearch,
