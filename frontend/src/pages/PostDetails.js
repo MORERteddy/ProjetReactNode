@@ -1,147 +1,68 @@
-import React, { useState, useEffect, useContext } from "react";
-require("dotenv").config()
-import moment from "moment";
-import AuthContext from "./AuthContext";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react"
+import { NavLink, useParams,useHistory } from "react-router-dom"
+import moment from "moment"
 
-function PostDetails(props) {
-  const [post, setPost] = useState([]);
-  const postId = props.match.params.	postId;
-  const postRef = process.env.collection("posts").doc(postId);
-  const [comment, setComment] = useState("");
-  const { authUser} = useContext(AuthContext);
 
-  useEffect(() => {
-    let isSubscribed = true;
-      postRef.get().then(doc =>{   // unmounted
-        if(isSubscribed){
-        setPost({...doc.data(), id: doc.id});
-       
-      }
-  })
-    return () =>(isSubscribed=false); // ComponentwillUnmount()
-  }, [post, postRef]);
+const PostDetails = () => {
+	const [post, setPost] = useState([])
+	const [noteMoyenne, setNoteMoyenne] = useState(0)
+  const [comments, setComments] = useState([])
+  const [postcomments, setPostComments] = useState([])
+  const { id } = useParams()
+  const history = useHistory();
 
-  const getPost = () => {
-    postRef.get().then(doc => {
-      if (doc.exists) {
-        setPost({ ...doc.data(), id: doc.id });
-      }
-    });
-  };
-
-  const voteUp = postId => {
-    const myPost = process.env.collection("posts").doc(postId);
-    myPost.get().then(doc => {
-      if (doc.exists) {
-        const previousCount = doc.data().vote_count;
-        myPost.update({ vote_count: previousCount + 1 });
-      }
-    });
-  };
-
-  const voteDown = postId => {
-    const myPost = process.env.collection("posts").doc(postId);
-    myPost.get().then(doc => {
-      if (doc.exists) {
-        const previousCount = doc.data().vote_count;
-        myPost.update({ vote_count: previousCount - 1 });
-      }
-    });
-  };
-
-  const addComment = () => {
-    postRef.get().then(doc =>{
-      if(doc.exists){
-      const previousComment = doc.data().comments || [];
-      const commentText ={
-        postedBy :{id: "336", name: "samadi"},
-        created : Date.now(),
-        text : comment
-      }
-      const commentsUpdated = [...previousComment, commentText];
-      postRef.update({comments : commentsUpdated});
-      setPost(prevState =>({
-        ...prevState, comments : commentsUpdated
-      }))
-      setComment("");
-    }
-  })
-}
-
-  const renderPost = () => {
-    console.log(postRef)
+	const getData = () => {
+		fetch("http://localhost:4000/Post/" + id)
+			.then(res => res.json())
+			.then(data => {
+				console.log(data)
+        setPost(data)
+        setPostComments(data.comments)
+			})
+	}
+	useEffect(() => {
+		getData()
+    }, [])
+    
     return (
-      post && (
-        <div className="post-show">
-          <div className="post-image-full">
-            <img src={post.image} alt="" />
-          </div>
-          <div className="post-content">
-            <h3 className="post-title font-medium">{post.title}</h3>
-            <h5 className="post-details">
-              <span className="posted-by font-semibold">{post.author}</span>
-              <span className="date font-bold">
-                {moment(post.created_at).local("fr").fromNow()}
-              </span>
-            </h5>
-            <p className="post-body">{post.body}</p>
-            <div className="votes">
-              <div className="up" onClick={() => voteUp(post.id)}>
-                &#8593;
-              </div>
-              <div className="down" onClick={() => voteDown(post.id)}>
-                &#8595;
-              </div>
-              <div className="count">{post.vote_count}</div>
-            </div>     
-              {
-                authUser ?(
-                <>
-                <textarea
-                  className="textarea"
-                  placeholder="Commentaires"
-                  value={comment}
-                  onChange={event => setComment(event.target.value)}
-                  cols="30"
-                  rows="10"
-                />
-              <div>
-                <button className="btn btn-primary" onClick={() => addComment()}>
-                  Ajouter
-                </button>
-              </div>
-                </>
-                ):(
-                <>
-                <Link to="/Login" className="comment-title" >
-                  Vous devez vous connecter pour pouvoir commenter
-                </Link>
-              </>
-                )}
-            <div className="comments font-bold ">
-              <h3>Commentaires {post.comments && post.comments.length}</h3>
-            </div>
-            {post.comments &&
-              post.comments.map((comment, index) => (
-                <div key={index}>
-                  <p className="comment-author">
-                    {post.author } |{" "}
-                    {moment(comment.created)
-                      .local("fr")
-                      .format("MMMM Do YYYY, h:mm a")} | {" "}
-                      
-                  </p>
-                  <p className="comments">{comment.text}</p>
-                </div>
-              ))}
-          </div>
-        </div>
-      )
-    );
-  };
+		post && (
+            <>
+			<div>
+				<h1>Test</h1>
+				<div className="post">
+					<div className="post-image">
+						<img src={post.image} alt="" />
+						{console.log(post.image)}
+					</div>
+					<div className="post-content">
+						<h5 className="post-details">
+							<span className="posted-by font-semibold">
+								{post.author}
+							</span>
+							<span className="date font-bold">
+								{moment(post.created_at).local("fr").fromNow()}
+							</span>
+						</h5>
+						<p className="post-body">{post.body}</p>
+						<div className="count">Nombre de vote : {post.noteMoyenne}</div>
+							<div className="count">Note :{post.noteMoyenne}</div>
+						
+					</div>
+    
+				</div>
+			</div>
+        <hr />
+<div className="post-body"> 
+<ul>
+          {postcomments.length>0?post.comments.map((comment, index) => {return <li key={index} >{comment}</li> }):<></>}
+        </ul>
+</div>
+<NavLink to={`/EditComm/${id}`}>
+                <h3 className="post-title font-medium">Mettre un commentaire</h3>
+              </NavLink>
 
-  return renderPost();
-}
-
-export default PostDetails;
+</>
+))
+	
+        }
+        export default PostDetails;

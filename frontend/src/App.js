@@ -7,6 +7,7 @@ import CreatePost from "./pages/CreatePost"
 import Search from "./pages/Search"
 import ListePosts from "./pages/ListePosts"
 import EditComm from "./pages/EditComm"
+import PostDetails from "./pages/PostDetails"
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
         <Route path="/search" exact component ={Search}/>
         <Route path="/ListePosts" exact component ={ListePosts}/>
         <Route path="/EditComm/:id" exact  component ={EditComm}/>
+        <Route path="/PostDetails/:id" exact  component ={PostDetails}/>
+
       </Switch>
 
     </BrowserRouter>

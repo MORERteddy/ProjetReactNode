@@ -5,7 +5,7 @@ import moment from "moment"
 
 const EditComm = () => {
 	const [post, setPost] = useState([])
-	const [noteMoyenne, setNoteMoyenne] = useState(0)
+	const [noteMoyenne, setNoteMoyenne] = useState()
   const [comments, setComments] = useState([])
   const [postcomments, setPostComments] = useState([])
   const { id } = useParams()
