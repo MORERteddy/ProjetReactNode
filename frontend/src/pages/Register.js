@@ -2,21 +2,34 @@ import React, {useState} from 'react'
 
 function Register() {
     const [user, setUser] = useState({
-        name : '',
-        email: '',
-        password:''
+        name : "",
+        email: "",
+        password:""
     })
 
     const handleInputChange = event =>{
         setUser({
-            ...user,[event.target.name] : event.target.value
+            ...user,
+            [event.target.name] : event.target.value,
         })
     }
 
     const handleFormSubmit = event =>{
+        const optionFetch = {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name: user.name,
+                email: user.email,
+                password: user.password
+            })}
+
         event.preventDefault();
-        console.log(user)
+        fetch("http://localhost:4000/users/create", optionFetch)
     }
+
+    console.log(user.name, user.email, user.password)
 
     return (
 <div className="form-container">

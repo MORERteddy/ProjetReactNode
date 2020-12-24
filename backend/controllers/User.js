@@ -32,8 +32,6 @@ const getUser = (req,res) => {
     res.json(req.profile)
 }
 
-
-
 module.exports = {
     createUser,
     getUserById,

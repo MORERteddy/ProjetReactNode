@@ -2,18 +2,21 @@ import Home from './pages/Home'
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Navbar from './components/Navbar'
 import Register from './pages/Register';
-import {useState,useEffect} from "react"
+// import {useState,useEffect} from "react"
 import CreatePost from "./pages/CreatePost"
 import Search from "./pages/Search"
 import ListePosts from "./pages/ListePosts"
 import EditComm from "./pages/EditComm"
 
 function App() {
+<<<<<<< HEAD
+=======
 
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
   return (
 
     <BrowserRouter>
-    <Navbar />
+        <Navbar />
       <Switch>
         <Route path="/" exact component ={Home}/>
         <Route path="/register" exact component ={Register}/>
@@ -22,6 +25,10 @@ function App() {
         <Route path="/ListePosts" exact component ={ListePosts}/>
         <Route path="/EditComm/:id" exact  component ={EditComm}/>
       </Switch>
+<<<<<<< HEAD
+    </BrowserRouter>
+  )}
+=======
 
     </BrowserRouter>
     
@@ -29,5 +36,6 @@ function App() {
   );
 }
 
+>>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 
 export default App;
