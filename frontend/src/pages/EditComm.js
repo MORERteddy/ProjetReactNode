@@ -75,9 +75,10 @@ const EditComm = () => {
 					</div>
     
 				</div>
+        <hr />
 <div className="post-body"> 
 <ul>
-          {postcomments.length>0?post.comments.map((comment, index) => {<li key={index} >{comment}</li> }):<></>}
+          {postcomments.length>0?post.comments.map((comment, index) => {return <li key={index} >{comment}</li> }):<></>}
         </ul>
 </div>
 

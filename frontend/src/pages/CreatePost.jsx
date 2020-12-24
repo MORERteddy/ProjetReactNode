@@ -17,7 +17,7 @@ export default function CreatePost(props) {
 	const [image, setImage] = useState("")
 	const [selectedFile, setSelectedFile] = useState()
 
-	useEffect(() => {}, [])
+	useEffect(() => {}, [image])
 
 	const handleFormSubmit = event => {
 		const optionFetch = {
@@ -87,6 +87,7 @@ export default function CreatePost(props) {
 					onChange={handleFileInput}
 					
 				/>
+				{image!=""?<img src={image} alt=""/>:<></> }
 				<div>
 					<button className="btn btn-primary" type="submit">
 						Valider

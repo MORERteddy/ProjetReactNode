@@ -13,8 +13,9 @@ function Search() {
         console.log("valeur result " + results);
         console.log("valeur search apres setResult" + search);
         console.log("valeur result apres setResult" + results);
-      })
       setResults(data);
+
+      })
     };
     useEffect(() => {
       getSearch();
