@@ -9,10 +9,7 @@ import ListePosts from "./pages/ListePosts"
 import EditComm from "./pages/EditComm"
 
 function App() {
-<<<<<<< HEAD
-=======
 
->>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
   return (
 
     <BrowserRouter>
@@ -25,17 +22,7 @@ function App() {
         <Route path="/ListePosts" exact component ={ListePosts}/>
         <Route path="/EditComm/:id" exact  component ={EditComm}/>
       </Switch>
-<<<<<<< HEAD
     </BrowserRouter>
   )}
-=======
-
-    </BrowserRouter>
-    
-
-  );
-}
-
->>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 
 export default App;
