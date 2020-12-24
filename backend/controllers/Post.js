@@ -25,13 +25,8 @@ const getPostById=async(req,res)=>{
     .catch(err => res.status(500).send())
 }
 
-<<<<<<< HEAD
-const getPostByNote = app.get("/",async(req,res)=>{
-	await Post.find().sort({"noteMoyenne" : "desc"}).limit()
-=======
 const getPostByNote = async(req,res)=>{
 	await Post.find().sort({"noteMoyenne" : "desc"}).limit(5)
->>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 		.exec()
 		.then(document => res.status(200).json(document))
 		.catch(err => res.status(500).send())
@@ -75,10 +70,6 @@ const getImage = (req,res)=>{
 		console.log(data)
 	  })
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 
 module.exports = {
     getAllPosts,
@@ -89,9 +80,4 @@ module.exports = {
 	getSearch,
 	addSearch,
 	getImage
-<<<<<<< HEAD
-=======
-	
-
->>>>>>> ecf7031c6835c3eb1cb4ec0593a43fad4682dac8
 }
